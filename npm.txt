@@ -1,5 +1,8 @@
 #para el .env
 npm install @nestjs/config
 
+#microservicios
+npm i --save @nestjs/microservices
+
 # graphql
 npm i @nestjs/graphql @nestjs/apollo @apollo/server graphql

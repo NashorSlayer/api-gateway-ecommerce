@@ -12,7 +12,7 @@ import { UserModule } from './modules/user/user/user.module';
       isGlobal: true,
     }),
     GraphQlModule,
-    UserModule
+    UserModule,
   ],
   controllers: [AppController],
   providers: [AppService],
