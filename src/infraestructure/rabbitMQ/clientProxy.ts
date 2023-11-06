@@ -12,12 +12,11 @@ import { RabbitMQ } from '../../utils/constants';
 export class RabbitMQProxy {
     constructor(private readonly config: ConfigService) { }
 
-    clientProxyMovies(): ClientProxy {
-        console.log(this.config.get('AMQP_URL'))
+    clientProxyUser(): ClientProxy {
         return ClientProxyFactory.create({
             transport: Transport.RMQ,
             options: {
-                urls: this.config.get('AMQP_URL'),
+                urls: this.config.get('RMQ_URL'),
                 queue: RabbitMQ.UserQueue,
             },
         });

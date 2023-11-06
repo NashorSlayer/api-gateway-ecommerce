@@ -1,0 +1,1 @@
+export { ProxyModule } from './rabbitMQ/proxy.module'

@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common';
-import { RabbitMQProxy } from './client.Proxy';
+import { RabbitMQProxy } from './clientProxy';
 
 @Module({
     providers: [RabbitMQProxy],

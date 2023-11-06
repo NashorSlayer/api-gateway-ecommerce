@@ -1,12 +1,12 @@
 export enum RabbitMQ {
-    UserQueue = 'user',
+    UserQueue = 'ms-user',
 }
 
 export enum UserMsg {
-    CREATE = 'CREATE_User',
-    FIND_ALL = 'FIND_UserS',
-    FIND_ONE = 'FIND_User',
-    UPDATE = 'UPDATE_User',
-    DELETE = 'DELETE_User',
+    CREATE = 'CREATE_USER',
+    FIND_ALL = 'FIND_USERS',
+    FIND_ONE = 'FIND_USER',
+    UPDATE = 'UPDATE_USER',
+    DELETE = 'DELETE_USER',
 }
 

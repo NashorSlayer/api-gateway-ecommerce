@@ -1,0 +1,31 @@
+scalar Date
+
+type Query {
+    getUsers : [User]
+    getUserById: User
+}
+
+type Mutation{
+    createUser(user: UserData): User
+    updateUser(id:ID, user: UserData): User
+}
+
+type User {
+    id: ID!
+    name: String!
+    email: String!
+    password: String!
+    lastname: String!
+    firstname: String!
+    image: String
+    #ShoppingHistory: [ShoppingHistory]
+    #Cart: Cart
+}
+
+input UserData {
+    name: String!
+    email: String!
+    password: String!
+    lastname: String!
+    firstname: String!
+}

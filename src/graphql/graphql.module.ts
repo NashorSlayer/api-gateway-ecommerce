@@ -10,7 +10,7 @@ import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
             context: ({ req, res }) => ({ req, res }),
             playground: {
                 settings: {
-                    "editor.theme": 'light'
+                    "editor.theme": 'dark'
                 }
             }
         }),
