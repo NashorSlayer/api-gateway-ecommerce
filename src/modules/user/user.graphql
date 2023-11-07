@@ -6,26 +6,48 @@ type Query {
 }
 
 type Mutation{
-    createUser(user: UserData): User
     updateUser(id:ID, user: UserData): User
+    deleteUser(id:ID): User
+
+
+    login(input: LoginData): User!
+    register(input: RegisterData): User!
+
 }
+
+input LoginData {
+    email: String!
+    password: String!
+}
+
+input RegisterData {
+    email: String!
+    password: String!
+    firstName: String!
+    lastName: String!
+}
+
 
 type User {
     id: ID!
     name: String!
     email: String!
     password: String!
-    lastname: String!
-    firstname: String!
+    lastName: String!
+    firstName: String!
     image: String
-    #ShoppingHistory: [ShoppingHistory]
-    #Cart: Cart
+    address: String
+    Cart: Cart 
+
+}
+
+type Cart {
+    id: ID!
 }
 
 input UserData {
-    name: String!
     email: String!
     password: String!
-    lastname: String!
-    firstname: String!
+    lastName: String!
+    firstName: String!
 }
