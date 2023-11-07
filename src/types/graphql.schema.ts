@@ -38,9 +38,14 @@ export abstract class IMutation {
 
     abstract deleteUser(id?: Nullable<string>): Nullable<User> | Promise<Nullable<User>>;
 
-    abstract login(input?: Nullable<LoginData>): User | Promise<User>;
+    abstract login(input?: Nullable<LoginData>): Nullable<AuthPayload> | Promise<Nullable<AuthPayload>>;
 
-    abstract register(input?: Nullable<RegisterData>): User | Promise<User>;
+    abstract register(input?: Nullable<RegisterData>): Nullable<User> | Promise<Nullable<User>>;
+}
+
+export class AuthPayload {
+    access_token: string;
+    user: User;
 }
 
 export class User {
@@ -50,9 +55,9 @@ export class User {
     password: string;
     lastName: string;
     firstName: string;
-    image?: Nullable<string>;
-    address?: Nullable<string>;
-    Cart?: Nullable<Cart>;
+    image: string;
+    address: string;
+    Cart: Cart;
 }
 
 export class Cart {

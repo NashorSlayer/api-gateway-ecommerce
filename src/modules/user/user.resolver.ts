@@ -3,7 +3,7 @@ import { Observable } from 'rxjs';
 
 import { RabbitMQProxy } from "../../infraestructure/rabbitMQ/clientProxy";
 import { AuthMsg, UserMsg } from "../../utils/constants";
-import { LoginData, RegisterData, User } from "../../types/graphql.schema";
+import { AuthPayload, LoginData, RegisterData, User } from "../../types/graphql.schema";
 
 
 
@@ -20,7 +20,7 @@ export class UserResolver {
     }
 
     @Mutation('login')
-    login(@Args('input') loginData: LoginData): Observable<User> {
+    login(@Args('input') loginData: LoginData): Observable<AuthPayload> {
         return this.clientProxyUser.send(AuthMsg.LOGIN, loginData);
     }
 
