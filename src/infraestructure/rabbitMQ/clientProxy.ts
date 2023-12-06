@@ -22,6 +22,7 @@ export class RabbitMQProxy {
             },
         });
     }
+    
     clientProxyProduct(): ClientProxy {
         return ClientProxyFactory.create({
             transport: Transport.RMQ,

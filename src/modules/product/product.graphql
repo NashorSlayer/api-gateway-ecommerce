@@ -1,0 +1,57 @@
+
+type Product {
+  id: ID!
+  name: String!
+  price: Float!
+  stock: Int!
+  description: String!
+  offer: Boolean!
+  promotion: Float!
+  image: String!
+  category_id: String!
+  category: Category!
+}
+
+type Category {
+  id: ID!
+  name: String!
+}
+
+type Query {
+  getProducts: [Product]!
+}
+
+input CreateProductInput {
+  name: String!
+  price: Float!
+  stock: Int!
+  description: String!
+  offer: Boolean!
+  promotion: Float!
+  image: String!
+  category_id: String!
+}
+
+type Mutation {
+  createProduct(input: CreateProductInput!): Product!
+  updateProduct(id:ID, input: UpdateProductInput!): Product!
+  deleteProduct(id:ID, input: DeleteProductInput!): Product!
+}
+
+input UpdateProductInput {
+  id: ID!
+  # Include other fields you want to update
+  name: String
+  price: Float
+  stock: Int
+  description: String
+  offer: Boolean
+  promotion: Float
+  image: String
+  category_id: String
+}
+
+input DeleteProductInput {
+  id: ID!
+}
+
