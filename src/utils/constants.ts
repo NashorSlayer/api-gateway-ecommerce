@@ -1,5 +1,14 @@
 export enum RabbitMQ {
     UserQueue = 'ms-user',
+    ProductQueue = 'ms-product',
+}
+//Esto en verdad asumi que va aca pero tengo que confirmar con el arif.
+export enum ProductMsg {
+    CREATE = 'CREATE_PRODUCT',
+    FIND_ALL = 'FIND_PRODUCTS',
+    FIND_ONE = 'FIND_PRODUCT',
+    UPDATE = 'UPDATE_PRODUCT',
+    DELETE = 'DELETE_PRODUCT',
 }
 
 export enum UserMsg {
