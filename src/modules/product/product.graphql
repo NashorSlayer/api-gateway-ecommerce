@@ -1,4 +1,14 @@
 
+type Mutation {
+  createProduct(input: CreateProductInput!): Product!
+  updateProduct(id:ID, input: UpdateProductInput!): Product!
+  deleteProduct(id:ID, input: DeleteProductInput!): Product!
+}
+
+type Query {
+  getProducts: [Product]!
+}
+
 type Product {
   id: ID!
   name: String!
@@ -17,9 +27,6 @@ type Category {
   name: String!
 }
 
-type Query {
-  getProducts: [Product]!
-}
 
 input CreateProductInput {
   name: String!
@@ -32,11 +39,7 @@ input CreateProductInput {
   category_id: String!
 }
 
-type Mutation {
-  createProduct(input: CreateProductInput!): Product!
-  updateProduct(id:ID, input: UpdateProductInput!): Product!
-  deleteProduct(id:ID, input: DeleteProductInput!): Product!
-}
+
 
 input UpdateProductInput {
   id: ID!
