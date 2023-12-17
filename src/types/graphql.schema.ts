@@ -54,12 +54,20 @@ export class UserData {
     firstName: string;
 }
 
+export abstract class IQuery {
+    abstract getProducts(): Nullable<Nullable<Product>[]> | Promise<Nullable<Nullable<Product>[]>>;
+
+    abstract getUsers(): Nullable<Nullable<User>[]> | Promise<Nullable<Nullable<User>[]>>;
+
+    abstract getUserById(): Nullable<User> | Promise<Nullable<User>>;
+}
+
 export abstract class IMutation {
-    abstract createProduct(input: CreateProductInput): Product | Promise<Product>;
+    abstract createProduct(input?: Nullable<CreateProductInput>): Nullable<Product> | Promise<Nullable<Product>>;
 
-    abstract updateProduct(input: UpdateProductInput, id?: Nullable<string>): Product | Promise<Product>;
+    abstract updateProduct(id?: Nullable<string>, input?: Nullable<UpdateProductInput>): Nullable<Product> | Promise<Nullable<Product>>;
 
-    abstract deleteProduct(input: DeleteProductInput, id?: Nullable<string>): Product | Promise<Product>;
+    abstract deleteProduct(id?: Nullable<string>, input?: Nullable<DeleteProductInput>): Nullable<Product> | Promise<Nullable<Product>>;
 
     abstract updateUser(id?: Nullable<string>, user?: Nullable<UserData>): Nullable<User> | Promise<Nullable<User>>;
 
@@ -68,14 +76,6 @@ export abstract class IMutation {
     abstract login(input?: Nullable<LoginData>): Nullable<AuthPayload> | Promise<Nullable<AuthPayload>>;
 
     abstract register(input?: Nullable<RegisterData>): Nullable<User> | Promise<Nullable<User>>;
-}
-
-export abstract class IQuery {
-    abstract getProducts(): Nullable<Product>[] | Promise<Nullable<Product>[]>;
-
-    abstract getUsers(): Nullable<Nullable<User>[]> | Promise<Nullable<Nullable<User>[]>>;
-
-    abstract getUserById(): Nullable<User> | Promise<Nullable<User>>;
 }
 
 export class Product {

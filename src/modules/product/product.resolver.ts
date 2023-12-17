@@ -1,7 +1,7 @@
 import { Query, Mutation, Resolver, Args } from "@nestjs/graphql";
 import { Observable } from 'rxjs';
 
-import { AuthMsg, ProductMsg } from "../../utils/constants";
+import { ProductMsg } from "../../utils/constants";
 import { RabbitMQProxy } from "../../infraestructure/rabbitMQ/clientProxy";
 
 @Resolver('Product')
@@ -30,11 +30,6 @@ export class ProductResolver {
         delete(@Args('input') deleteProduct): Observable<any> {
             return this.clientProxyProduct.send(ProductMsg.DELETE, deleteProduct);
         }
-
-        
-
-
-
 
     }
 

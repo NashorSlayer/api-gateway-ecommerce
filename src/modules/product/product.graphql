@@ -1,13 +1,14 @@
 
+type Query {
+  getProducts: [Product]!
+}
+
 type Mutation {
   createProduct(input: CreateProductInput!): Product!
   updateProduct(id:ID, input: UpdateProductInput!): Product!
   deleteProduct(id:ID, input: DeleteProductInput!): Product!
 }
 
-type Query {
-  getProducts: [Product]!
-}
 
 type Product {
   id: ID!
