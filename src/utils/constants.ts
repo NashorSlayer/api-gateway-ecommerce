@@ -1,6 +1,6 @@
 export enum RabbitMQ {
     UserQueue = 'ms-user',
-    ProductQueue = 'ms-product',
+    ProductQueue = 'products_queue',
 }
 //Esto en verdad asumi que va aca pero tengo que confirmar con el arif.
 export enum ProductMsg {
