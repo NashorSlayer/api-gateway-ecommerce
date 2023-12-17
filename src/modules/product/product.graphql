@@ -4,7 +4,7 @@ type Query {
 }
 
 type Mutation {
-  createProduct(input: CreateProductInput!): Product!
+  createProduct(input: CreateProductInput!): Product! # CreateProductInput
   updateProduct(id:ID, input: UpdateProductInput!): Product!
   deleteProduct(id:ID, input: DeleteProductInput!): Product!
 }
@@ -20,7 +20,7 @@ type Product {
   promotion: Float!
   image: String!
   category_id: String!
-  #category: Category!
+  category: Category!
 }
 
 type Category {
@@ -41,10 +41,8 @@ input CreateProductInput {
 }
 
 
-
 input UpdateProductInput {
   id: ID!
-  # Include other fields you want to update
   name: String
   price: Float
   stock: Int
