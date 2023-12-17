@@ -8,6 +8,13 @@
 /* tslint:disable */
 /* eslint-disable */
 
+export class UserData {
+    email: string;
+    password: string;
+    lastName: string;
+    firstName: string;
+}
+
 export class LoginData {
     email: string;
     password: string;
@@ -18,13 +25,6 @@ export class RegisterData {
     password: string;
     firstName: string;
     lastName: string;
-}
-
-export class UserData {
-    email: string;
-    password: string;
-    lastName: string;
-    firstName: string;
 }
 
 export abstract class IQuery {
@@ -50,7 +50,6 @@ export class AuthPayload {
 
 export class User {
     id: string;
-    name: string;
     email: string;
     password: string;
     lastName: string;
@@ -58,10 +57,30 @@ export class User {
     image: string;
     address: string;
     Cart: Cart;
+    Historical: Historical;
 }
 
 export class Cart {
     id: string;
+    isEmpty: boolean;
+}
+
+export class Cart_Products {
+    id: string;
+    cart_id: string;
+    product_id: string;
+    amount: number;
+}
+
+export class Historical {
+    id: string;
+}
+
+export class Historical_Products {
+    id: string;
+    historical_id: string;
+    orderBuyId: string;
+    date: Date;
 }
 
 type Nullable<T> = T | null;

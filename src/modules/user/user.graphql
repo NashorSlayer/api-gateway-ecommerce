@@ -6,10 +6,12 @@ type Query {
 }
 
 type Mutation{
+    # User
     updateUser(id:ID, user: UserData): User
     deleteUser(id:ID): User
 
 
+    # Auth 
     login(input: LoginData): AuthPayload
     register(input: RegisterData): User
 
@@ -18,6 +20,48 @@ type Mutation{
 type AuthPayload {
     access_token: String!
     user: User!
+}
+
+type User {
+    id: ID!
+    email: String!
+    password: String!
+    lastName: String!
+    firstName: String!
+    image: String!
+    address: String!
+    Cart: Cart !
+    Historical: Historical!
+}
+
+type Cart {
+    id: ID!
+    isEmpty: Boolean!
+}
+
+type Cart_Products {
+    id: ID!
+    cart_id: ID!
+    product_id: ID!
+    amount: Int!
+}
+
+type Historical {
+    id: ID!
+}
+
+type Historical_Products {
+    id: ID!
+    historical_id: ID!
+    orderBuyId: ID!
+    date: Date!
+}
+
+input UserData {
+    email: String!
+    password: String!
+    lastName: String!
+    firstName: String!
 }
 
 input LoginData {
@@ -30,28 +74,4 @@ input RegisterData {
     password: String!
     firstName: String!
     lastName: String!
-}
-
-
-type User {
-    id: ID!
-    name: String!
-    email: String!
-    password: String!
-    lastName: String!
-    firstName: String!
-    image: String!
-    address: String!
-    Cart: Cart !
-}
-
-type Cart {
-    id: ID!
-}
-
-input UserData {
-    email: String!
-    password: String!
-    lastName: String!
-    firstName: String!
 }
