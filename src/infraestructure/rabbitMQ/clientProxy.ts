@@ -16,7 +16,7 @@ export class RabbitMQProxy {
         return ClientProxyFactory.create({
             transport: Transport.RMQ,
             options: {
-                urls: this.config.get('RMQ_URL_User'),
+                urls: this.config.get('RMQ_URL'),
                 queue: RabbitMQ.UserQueue,
                 
             },
@@ -27,7 +27,7 @@ export class RabbitMQProxy {
         return ClientProxyFactory.create({
             transport: Transport.RMQ,
             options: {
-                urls: this.config.get('RMQ_QUEUE_Product'),
+                urls: this.config.get('RMQ_URL'),
                 queue: RabbitMQ.ProductQueue,
                 
             },
