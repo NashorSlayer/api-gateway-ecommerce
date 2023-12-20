@@ -1,8 +1,9 @@
 import { Query, Mutation, Resolver, Args } from "@nestjs/graphql";
 import { Observable } from 'rxjs';
 
-import { ProductMsg } from "../../utils/constants";
+import { ProductMsg, CategoryMsg } from "../../utils/constants";
 import { RabbitMQProxy } from "../../infraestructure/rabbitMQ/clientProxy";
+import { query } from "express";
 
 @Resolver('Product')
 export class ProductResolver {
@@ -30,6 +31,28 @@ export class ProductResolver {
         delete(@Args('input') deleteProduct): Observable<any> {
             return this.clientProxyProduct.send(ProductMsg.DELETE, deleteProduct);
         }
+        @Mutation('createCategory')
+        createCategory(@Args('input') createCategory): Observable<any> {
+            return this.clientProxyProduct.send(CategoryMsg.CREATE, createCategory);
+        }
+
+        @Query('getCategories')
+        getCategories(): Observable<any> {
+            return this.clientProxyProduct.send(CategoryMsg.FIND_ALL, "");
+        }
+
+        @Mutation('updateCategory')
+        updateCategory(@Args('input') updateCategory): Observable<any> {
+            return this.clientProxyProduct.send(CategoryMsg.UPDATE, updateCategory);
+        }
+
+        @Mutation('deleteCategory')
+        deleteCategory(@Args('input') deleteCategory): Observable<any> {
+            return this.clientProxyProduct.send(CategoryMsg.DELETE, deleteCategory);
+        }
+        
+
 
     }
+    
 
