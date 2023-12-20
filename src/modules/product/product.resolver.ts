@@ -3,7 +3,6 @@ import { Observable } from 'rxjs';
 
 import { ProductMsg, CategoryMsg } from "../../utils/constants";
 import { RabbitMQProxy } from "../../infraestructure/rabbitMQ/clientProxy";
-import { query } from "express";
 
 @Resolver('Product')
 export class ProductResolver {
