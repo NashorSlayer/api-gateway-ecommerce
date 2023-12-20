@@ -1,8 +1,21 @@
 scalar Date
 
 type Query {
+
+    getUserById(id:ID): User
     getUsers : [User]
-    getUserById: User
+
+    getCart(id:ID): Cart
+    getCarts: [Cart]
+
+    getHistorical(id:ID): Historical
+    getHistoricals: [Historical]
+
+    getCart_Product(id:ID): Cart_Products
+    getCart_ProductsByCartId(id:ID): Cart_Products
+
+    getHistorical_Product(id:ID): Historical_Products
+    getHistorical_ProductsByHistoricalId(id:ID): Historical_Products
 }
 
 type Mutation{
@@ -10,6 +23,19 @@ type Mutation{
     updateUser(id:ID, user: UserData): User
     deleteUser(id:ID): User
 
+    # Cart
+    updateCart(input: CartData): Cart
+
+    # Cart_Products
+    createCart_Products(input: Cart_ProductsData): Cart_Products
+    updateCart_Products(input: Cart_ProductsData): Cart_Products
+    deleteCart_Products(id:ID): Cart_Products
+
+    # Historical
+    deleteHistorical(id:ID): Historical
+
+    # Historical_Products
+    createHistorical_Products(input: Historical_ProductsData): Historical_Products
 
     # Auth 
     login(input: LoginData): AuthPayload
@@ -17,10 +43,14 @@ type Mutation{
 
 }
 
+#Payloads 
+
 type AuthPayload {
     access_token: String!
     user: User!
 }
+
+# Types
 
 type User {
     id: ID!
@@ -35,8 +65,12 @@ type User {
 }
 
 type Cart {
-    id: ID!
-    isEmpty: Boolean!
+    id: ID
+    isEmpty: Boolean
+}
+
+type Historical {
+    id: ID
 }
 
 type Cart_Products {
@@ -46,10 +80,6 @@ type Cart_Products {
     amount: Int!
 }
 
-type Historical {
-    id: ID!
-}
-
 type Historical_Products {
     id: ID!
     historical_id: ID!
@@ -57,11 +87,34 @@ type Historical_Products {
     date: Date!
 }
 
+# Inputs
+
 input UserData {
     email: String!
     password: String!
     lastName: String!
     firstName: String!
+}
+
+input Historical_ProductsData {
+    historical_id: ID!
+    orderBuyId: ID!
+    date: Date!
+}
+
+input CartData {
+    id: ID!
+    isEmpty: Boolean
+}
+
+input Cart_ProductsData {
+    cart_id: ID!
+    product_id: ID!
+    amount: Int!
+}
+
+input HistoricalData {
+    id: ID
 }
 
 input LoginData {
