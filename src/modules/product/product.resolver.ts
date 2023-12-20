@@ -36,8 +36,8 @@ export class ProductResolver {
             return this.clientProxyProduct.send(CategoryMsg.CREATE, createCategory);
         }
 
-        @Query('getCategories')
-        getCategories(): Observable<any> {
+        @Query('getCategory')
+        getCategory(): Observable<any> {
             return this.clientProxyProduct.send(CategoryMsg.FIND_ALL, "");
         }
 
@@ -50,7 +50,7 @@ export class ProductResolver {
         deleteCategory(@Args('input') deleteCategory): Observable<any> {
             return this.clientProxyProduct.send(CategoryMsg.DELETE, deleteCategory);
         }
-        
+
 
 
     }
