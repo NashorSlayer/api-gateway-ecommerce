@@ -1,3 +1,4 @@
+
 export enum RabbitMQ {
     UserQueue = 'ms-user',
     ProductQueue = 'product_queue',
@@ -9,6 +10,14 @@ export enum ProductMsg {
     FIND_ONE = 'FIND_PRODUCT',
     UPDATE = 'UPDATE_PRODUCT',
     DELETE = 'DELETE_PRODUCT',
+}
+
+export enum CategoryMsg {
+    CREATE = 'CREATE_CATEGORY',
+    FIND_ALL = 'FIND_CATEGORIES',
+    FIND_ONE = 'FIND_CATEGORY',
+    UPDATE = 'UPDATE_CATEGORY',
+    DELETE = 'DELETE_CATEGORY',
 }
 
 export enum UserMsg {

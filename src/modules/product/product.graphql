@@ -1,12 +1,18 @@
+scalar Date
 
 type Query {
-  getProducts: [Product]!
+  getProducts: [Product]
+  getCategory: [Category]
 }
 
 type Mutation {
-  createProduct(input: CreateProductInput!): Product! # CreateProductInput
-  updateProduct(id:ID, input: UpdateProductInput!): Product!
-  deleteProduct(id:ID, input: DeleteProductInput!): Product!
+  createProduct(input: CreateProductInput!): Product 
+  createCategory(input: CreateCategoryInput!): Category
+
+  updateProduct(id:ID, product: ProductData): Product
+  deleteProduct(id:ID): Product
+  updateCategory(id:ID, category: CategoryData): Category
+  deleteCategory(id:ID): Category
 }
 
 
@@ -40,20 +46,21 @@ input CreateProductInput {
   category_id: String!
 }
 
-
-input UpdateProductInput {
-  id: ID!
-  name: String
-  price: Float
-  stock: Int
-  description: String
-  offer: Boolean
-  promotion: Float
-  image: String
-  category_id: String
+input CreateCategoryInput {
+  name: String!
 }
 
-input DeleteProductInput {
-  id: ID!
+input ProductData {
+  name: String!
+  price: Float!
+  stock: Int!
+  description: String!
+  offer: Boolean!
+  promotion: Float!
+  image: String!
+  category_id: String!
 }
 
+input CategoryData {
+  name: String!
+}
