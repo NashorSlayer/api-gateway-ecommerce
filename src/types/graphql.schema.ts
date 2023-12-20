@@ -17,7 +17,7 @@ export class UserData {
 
 export class Historical_ProductsData {
     historical_id: string;
-    orderBuyId: string;
+    order_buy_id: string;
 }
 
 export class CartData {
@@ -127,7 +127,7 @@ export class Cart_Products {
 export class Historical_Products {
     id: string;
     historical_id: string;
-    orderBuyId: string;
+    order_buy_id: string;
     date: Date;
 }
 

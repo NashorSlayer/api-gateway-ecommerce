@@ -83,7 +83,7 @@ type Cart_Products {
 type Historical_Products {
     id: ID!
     historical_id: ID!
-    orderBuyId: ID!
+    order_buy_id: ID!
     date: Date!
 }
 
@@ -98,7 +98,7 @@ input UserData {
 
 input Historical_ProductsData {
     historical_id: ID!
-    orderBuyId: ID!
+    order_buy_id: ID!
 }
 
 input CartData {
