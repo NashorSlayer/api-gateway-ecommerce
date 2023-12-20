@@ -99,7 +99,6 @@ input UserData {
 input Historical_ProductsData {
     historical_id: ID!
     orderBuyId: ID!
-    date: Date!
 }
 
 input CartData {
