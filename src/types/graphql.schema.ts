@@ -173,11 +173,11 @@ export class Payment {
 export class ConfirmPayment {
     vci: string;
     amount: number;
-    status: string;
     buy_order: string;
     session_id: string;
     card_detail: CardDetail;
     accounting_date: string;
+    response_code: number;
     transaction_date: string;
     authorization_code: string;
     payment_type_code: string;

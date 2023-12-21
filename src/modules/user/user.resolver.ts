@@ -15,8 +15,8 @@ export class UserResolver {
     private clientProxyUser = this.clientProxy.clientProxyUser();
 
     @Query('getUserById')
-    getUserById(): Observable<User> {
-        return this.clientProxyUser.send(UserMsg.FIND_ONE, "");
+    getUserById(@Args('id') id: string): Observable<User> {
+        return this.clientProxyUser.send(UserMsg.FIND_ONE, id);
     }
 
     @Query('getUsers')

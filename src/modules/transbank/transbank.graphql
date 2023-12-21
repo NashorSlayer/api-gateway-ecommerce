@@ -16,11 +16,11 @@ type Payment {
 type ConfirmPayment{
     vci: String!
     amount: Float!
-    status: String!
     buy_order: String!
     session_id: String!
     card_detail: CardDetail!
     accounting_date: String!
+    response_code: Int!
     transaction_date: String!
     authorization_code: String!
     payment_type_code: String!
