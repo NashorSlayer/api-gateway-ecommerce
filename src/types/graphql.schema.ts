@@ -15,6 +15,30 @@ export class UserData {
     firstName: string;
 }
 
+export class Historical_ProductsData {
+    historical_id: string;
+    order_buy_id: string;
+}
+
+export class CartData {
+    id: string;
+    isEmpty?: Nullable<boolean>;
+}
+
+export class Cart_ProductsData {
+    cart_id: string;
+    product_id: string;
+    amount: number;
+}
+
+export class UpdateCart_ProductsData {
+    amount: number;
+}
+
+export class HistoricalData {
+    id?: Nullable<string>;
+}
+
 export class LoginData {
     email: string;
     password: string;
@@ -28,15 +52,43 @@ export class RegisterData {
 }
 
 export abstract class IQuery {
+    abstract getUserById(id?: Nullable<string>): Nullable<User> | Promise<Nullable<User>>;
+
     abstract getUsers(): Nullable<Nullable<User>[]> | Promise<Nullable<Nullable<User>[]>>;
 
-    abstract getUserById(): Nullable<User> | Promise<Nullable<User>>;
+    abstract getCart(id?: Nullable<string>): Nullable<Cart> | Promise<Nullable<Cart>>;
+
+    abstract getCarts(): Nullable<Nullable<Cart>[]> | Promise<Nullable<Nullable<Cart>[]>>;
+
+    abstract getHistorical(id?: Nullable<string>): Nullable<Historical> | Promise<Nullable<Historical>>;
+
+    abstract getHistoricals(): Nullable<Nullable<Historical>[]> | Promise<Nullable<Nullable<Historical>[]>>;
+
+    abstract getCart_Product(id?: Nullable<string>): Nullable<Cart_Products> | Promise<Nullable<Cart_Products>>;
+
+    abstract getCart_ProductsByCartId(id?: Nullable<string>): Nullable<Cart_Products> | Promise<Nullable<Cart_Products>>;
+
+    abstract getHistorical_Product(id?: Nullable<string>): Nullable<Historical_Products> | Promise<Nullable<Historical_Products>>;
+
+    abstract getHistorical_ProductsByHistoricalId(id?: Nullable<string>): Nullable<Historical_Products> | Promise<Nullable<Historical_Products>>;
 }
 
 export abstract class IMutation {
     abstract updateUser(id?: Nullable<string>, user?: Nullable<UserData>): Nullable<User> | Promise<Nullable<User>>;
 
     abstract deleteUser(id?: Nullable<string>): Nullable<User> | Promise<Nullable<User>>;
+
+    abstract updateCart(input?: Nullable<CartData>): Nullable<Cart> | Promise<Nullable<Cart>>;
+
+    abstract createCart_Products(input?: Nullable<Cart_ProductsData>): Nullable<Cart_Products> | Promise<Nullable<Cart_Products>>;
+
+    abstract updateCart_Products(input: UpdateCart_ProductsData, id: string): Nullable<Cart_Products> | Promise<Nullable<Cart_Products>>;
+
+    abstract deleteCart_Products(id?: Nullable<string>): Nullable<Cart_Products> | Promise<Nullable<Cart_Products>>;
+
+    abstract deleteHistorical(id?: Nullable<string>): Nullable<Historical> | Promise<Nullable<Historical>>;
+
+    abstract createHistorical_Products(input?: Nullable<Historical_ProductsData>): Nullable<Historical_Products> | Promise<Nullable<Historical_Products>>;
 
     abstract login(input?: Nullable<LoginData>): Nullable<AuthPayload> | Promise<Nullable<AuthPayload>>;
 
@@ -61,25 +113,24 @@ export class User {
 }
 
 export class Cart {
-    id: string;
-    isEmpty: boolean;
+    id?: Nullable<string>;
+    isEmpty?: Nullable<boolean>;
+}
+
+export class Historical {
+    id?: Nullable<string>;
 }
 
 export class Cart_Products {
-    id: string;
     cart_id: string;
     product_id: string;
     amount: number;
 }
 
-export class Historical {
-    id: string;
-}
-
 export class Historical_Products {
     id: string;
     historical_id: string;
-    orderBuyId: string;
+    order_buy_id: string;
     date: Date;
 }
 
