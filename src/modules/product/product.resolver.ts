@@ -13,7 +13,7 @@ export class ProductResolver {
 
         @Query('getProducts')
         findAll(): Observable<any> {
-            return this.clientProxyProduct.send("GET_PRODUCTS", "");
+            return this.clientProxyProduct.send(ProductMsg.FIND_ALL, {});
         }
 
         @Mutation('createProduct')
@@ -37,9 +37,9 @@ export class ProductResolver {
             return this.clientProxyProduct.send(CategoryMsg.CREATE, createCategory);
         }
 
-        @Query('getCategory')
+        @Query('getCategories')
         getCategory(): Observable<any> {
-            return this.clientProxyProduct.send(CategoryMsg.FIND_ALL, "");
+            return this.clientProxyProduct.send(CategoryMsg.FIND_ALL, {});
         }
 
         @Mutation('updateCategory')
