@@ -1,0 +1,66 @@
+scalar Date
+
+type Query {
+  getProducts: [Product]
+  getCategory: [Category]
+}
+
+type Mutation {
+  createProduct(input: CreateProductInput!): Product 
+  createCategory(input: CreateCategoryInput!): Category
+
+  updateProduct(id:Int, product: ProductData): Product
+  deleteProduct(id:Int): Product
+  updateCategory(id:Int, category: CategoryData): Category
+  deleteCategory(id:Int): Category
+}
+
+
+type Product {
+  id: Int!
+  name: String!
+  price: Float!
+  stock: Int!
+  description: String!
+  offer: Boolean!
+  promotion: Float!
+  image: String!
+  category_id: Int!
+  category: Category!
+}
+
+type Category {
+  id: Int!
+  name: String!
+}
+
+
+input CreateProductInput {
+  name: String!
+  price: Float!
+  stock: Int!
+  description: String!
+  offer: Boolean!
+  promotion: Float!
+  image: String!
+  category_id: Int!
+}
+
+input CreateCategoryInput {
+  name: String!
+}
+
+input ProductData {
+  name: String!
+  price: Float!
+  stock: Int!
+  description: String!
+  offer: Boolean!
+  promotion: Float!
+  image: String!
+  category_id: Int!
+}
+
+input CategoryData {
+  name: String!
+}

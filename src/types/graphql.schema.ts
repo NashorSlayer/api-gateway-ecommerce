@@ -8,6 +8,7 @@
 /* tslint:disable */
 /* eslint-disable */
 
+<<<<<<< HEAD
 export class UserData {
     email: string;
     password: string;
@@ -37,6 +38,36 @@ export class UpdateCart_ProductsData {
 
 export class HistoricalData {
     id?: Nullable<string>;
+=======
+export class CreateProductInput {
+    name: string;
+    price: number;
+    stock: number;
+    description: string;
+    offer: boolean;
+    promotion: number;
+    image: string;
+    category_id: number;
+}
+
+export class CreateCategoryInput {
+    name: string;
+}
+
+export class ProductData {
+    name: string;
+    price: number;
+    stock: number;
+    description: string;
+    offer: boolean;
+    promotion: number;
+    image: string;
+    category_id: number;
+}
+
+export class CategoryData {
+    name: string;
+>>>>>>> api_gateway_product
 }
 
 export class LoginData {
@@ -52,7 +83,13 @@ export class RegisterData {
 }
 
 export abstract class IQuery {
+<<<<<<< HEAD
     abstract getUserById(id?: Nullable<string>): Nullable<User> | Promise<Nullable<User>>;
+=======
+    abstract getProducts(): Nullable<Nullable<Product>[]> | Promise<Nullable<Nullable<Product>[]>>;
+
+    abstract getCategory(): Nullable<Nullable<Category>[]> | Promise<Nullable<Nullable<Category>[]>>;
+>>>>>>> api_gateway_product
 
     abstract getUsers(): Nullable<Nullable<User>[]> | Promise<Nullable<Nullable<User>[]>>;
 
@@ -74,6 +111,18 @@ export abstract class IQuery {
 }
 
 export abstract class IMutation {
+    abstract createProduct(input: CreateProductInput): Nullable<Product> | Promise<Nullable<Product>>;
+
+    abstract createCategory(input: CreateCategoryInput): Nullable<Category> | Promise<Nullable<Category>>;
+
+    abstract updateProduct(id?: Nullable<number>, product?: Nullable<ProductData>): Nullable<Product> | Promise<Nullable<Product>>;
+
+    abstract deleteProduct(id?: Nullable<number>): Nullable<Product> | Promise<Nullable<Product>>;
+
+    abstract updateCategory(id?: Nullable<number>, category?: Nullable<CategoryData>): Nullable<Category> | Promise<Nullable<Category>>;
+
+    abstract deleteCategory(id?: Nullable<number>): Nullable<Category> | Promise<Nullable<Category>>;
+
     abstract updateUser(id?: Nullable<string>, user?: Nullable<UserData>): Nullable<User> | Promise<Nullable<User>>;
 
     abstract deleteUser(id?: Nullable<string>): Nullable<User> | Promise<Nullable<User>>;
@@ -93,6 +142,24 @@ export abstract class IMutation {
     abstract login(input?: Nullable<LoginData>): Nullable<AuthPayload> | Promise<Nullable<AuthPayload>>;
 
     abstract register(input?: Nullable<RegisterData>): Nullable<User> | Promise<Nullable<User>>;
+}
+
+export class Product {
+    id: number;
+    name: string;
+    price: number;
+    stock: number;
+    description: string;
+    offer: boolean;
+    promotion: number;
+    image: string;
+    category_id: number;
+    category: Category;
+}
+
+export class Category {
+    id: number;
+    name: string;
 }
 
 export class AuthPayload {
