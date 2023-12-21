@@ -31,6 +31,10 @@ export class Cart_ProductsData {
     amount: number;
 }
 
+export class UpdateCart_ProductsData {
+    amount: number;
+}
+
 export class HistoricalData {
     id?: Nullable<string>;
 }
@@ -78,7 +82,7 @@ export abstract class IMutation {
 
     abstract createCart_Products(input?: Nullable<Cart_ProductsData>): Nullable<Cart_Products> | Promise<Nullable<Cart_Products>>;
 
-    abstract updateCart_Products(input?: Nullable<Cart_ProductsData>): Nullable<Cart_Products> | Promise<Nullable<Cart_Products>>;
+    abstract updateCart_Products(input: UpdateCart_ProductsData, id: string): Nullable<Cart_Products> | Promise<Nullable<Cart_Products>>;
 
     abstract deleteCart_Products(id?: Nullable<string>): Nullable<Cart_Products> | Promise<Nullable<Cart_Products>>;
 
@@ -118,7 +122,6 @@ export class Historical {
 }
 
 export class Cart_Products {
-    id: string;
     cart_id: string;
     product_id: string;
     amount: number;

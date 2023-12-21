@@ -3,7 +3,7 @@ import { Observable } from 'rxjs';
 
 import { RabbitMQProxy } from "../../infraestructure/rabbitMQ/clientProxy";
 import { AuthMsg, UserMsg, CartMsg, HistoricalMsg, Historical_productMsg, Cart_productMsg } from "../../utils/constants";
-import { AuthPayload, Cart, Cart_Products, Cart_ProductsData, Historical, Historical_ProductsData, LoginData, RegisterData, User } from "../../types/graphql.schema";
+import { AuthPayload, Cart, Cart_Products, Cart_ProductsData, Historical, Historical_Products, Historical_ProductsData, LoginData, RegisterData, User } from "../../types/graphql.schema";
 
 
 
@@ -26,7 +26,7 @@ export class UserResolver {
 
     @Query('getCart')
     createCart(@Args('id') id: string): Observable<Cart> {
-        return this.clientProxyUser.send(CartMsg.CREATE, id);
+        return this.clientProxyUser.send(CartMsg.FIND_ONE, id);
     }
 
     @Query('getCarts')
@@ -96,8 +96,9 @@ export class UserResolver {
     }
 
     @Mutation('updateCart_Products')
-    updateCart_Products(@Args('input') cart_products: Cart_ProductsData): Observable<Cart_Products> {
-        return this.clientProxyUser.send(Cart_productMsg.UPDATE, cart_products);
+    updateCart_Products(@Args('input') cart_products: Cart_ProductsData,
+        @Args('id') id: string): Observable<Cart_Products> {
+        return this.clientProxyUser.send(Cart_productMsg.UPDATE, { cart_products, id },);
     }
 
     @Mutation('deleteCart_Products')
@@ -106,12 +107,12 @@ export class UserResolver {
     }
 
     @Mutation('deleteHistorical')
-    deleteHistorical(@Args('id') id: string): Observable<Historical> {
+    deleteHistorical(@Args('id') id: string): Observable<Historical_Products> {
         return this.clientProxyUser.send(HistoricalMsg.DELETE, id);
     }
 
     @Mutation('createHistorical_Products')
-    createHistorical_Products(@Args('input') historical_products: Historical_ProductsData): Observable<Historical> {
+    createHistorical_Products(@Args('input') historical_products: Historical_ProductsData): Observable<Historical_Products> {
         return this.clientProxyUser.send(Historical_productMsg.CREATE, historical_products);
     }
 

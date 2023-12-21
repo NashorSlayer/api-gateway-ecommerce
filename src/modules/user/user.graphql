@@ -28,7 +28,7 @@ type Mutation{
 
     # Cart_Products
     createCart_Products(input: Cart_ProductsData): Cart_Products
-    updateCart_Products(input: Cart_ProductsData): Cart_Products
+    updateCart_Products(input: UpdateCart_ProductsData!, id:ID!): Cart_Products
     deleteCart_Products(id:ID): Cart_Products
 
     # Historical
@@ -74,11 +74,12 @@ type Historical {
 }
 
 type Cart_Products {
-    id: ID!
     cart_id: ID!
     product_id: ID!
     amount: Int!
 }
+
+
 
 type Historical_Products {
     id: ID!
@@ -109,6 +110,10 @@ input CartData {
 input Cart_ProductsData {
     cart_id: ID!
     product_id: ID!
+    amount: Int!
+}
+
+input UpdateCart_ProductsData {
     amount: Int!
 }
 
