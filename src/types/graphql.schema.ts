@@ -8,15 +8,43 @@
 /* tslint:disable */
 /* eslint-disable */
 
+
 export class PaymentData {
     amount: number;
 }
+export class CreateProductInput {
+    name: string;
+    price: number;
+    stock: number;
+    description: string;
+    offer: boolean;
+    promotion: number;
+    image: string;
+    category_id: number;
+}
+
+export class CreateCategoryInput {
+    name: string;
+}
+
+export class ProductData {
+    name: string;
+    price: number;
+    stock: number;
+    description: string;
+    offer: boolean;
+    promotion: number;
+    image: string;
+    category_id: number;
+}
+
+export class CategoryData {
+    name: string;
+}
 
 export class UserData {
-    email: string;
-    password: string;
-    lastName: string;
-    firstName: string;
+    address: string;
+    image: string;
 }
 
 export class Historical_ProductsData {
@@ -105,6 +133,10 @@ export class CardDetail {
 }
 
 export abstract class IQuery {
+    abstract getProducts(): Nullable<Nullable<Product>[]> | Promise<Nullable<Nullable<Product>[]>>;
+
+    abstract getCategory(): Nullable<Nullable<Category>[]> | Promise<Nullable<Nullable<Category>[]>>;
+
     abstract getUserById(id?: Nullable<string>): Nullable<User> | Promise<Nullable<User>>;
 
     abstract getUsers(): Nullable<Nullable<User>[]> | Promise<Nullable<Nullable<User>[]>>;
@@ -124,6 +156,25 @@ export abstract class IQuery {
     abstract getHistorical_Product(id?: Nullable<string>): Nullable<Historical_Products> | Promise<Nullable<Historical_Products>>;
 
     abstract getHistorical_ProductsByHistoricalId(id?: Nullable<string>): Nullable<Historical_Products> | Promise<Nullable<Historical_Products>>;
+}
+
+
+export class Product {
+    id: number;
+    name: string;
+    price: number;
+    stock: number;
+    description: string;
+    offer: boolean;
+    promotion: number;
+    image: string;
+    category_id: number;
+    category: Category;
+}
+
+export class Category {
+    id: number;
+    name: string;
 }
 
 export class AuthPayload {

@@ -1,6 +1,23 @@
+
 export enum RabbitMQ {
     UserQueue = 'ms-user',
     TransbankQueue = 'ms-transbank',
+    ProductQueue = 'product_queue',
+}
+export enum ProductMsg {
+    CREATE = 'CREATE_PRODUCT',
+    FIND_ALL = 'GET_PRODUCTS',
+    FIND_ONE = 'GET_PRODUCT',
+    UPDATE = 'UPDATE_PRODUCT',
+    DELETE = 'DELETE_PRODUCT',
+}
+
+export enum CategoryMsg {
+    CREATE = 'CREATE_CATEGORY',
+    FIND_ALL = 'GET_CATEGORIES',
+    FIND_ONE = 'GET_CATEGORY',
+    UPDATE = 'UPDATE_CATEGORY',
+    DELETE = 'DELETE_CATEGORY',
 }
 
 export enum UserMsg {

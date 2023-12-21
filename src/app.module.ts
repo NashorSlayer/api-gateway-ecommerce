@@ -4,6 +4,8 @@ import { GraphQlModule } from './graphql/graphql.module';
 import { UserModule } from './modules/user/user.module';
 import { TransbankModule } from './modules/transbank/transbank.module';
 
+import { ProductModule } from './modules/product/product.module';
+
 
 @Module({
   imports: [
@@ -14,6 +16,7 @@ import { TransbankModule } from './modules/transbank/transbank.module';
     GraphQlModule,
     UserModule,
     TransbankModule,
+    ProductModule,
   ],
   controllers: [],
   providers: [],
