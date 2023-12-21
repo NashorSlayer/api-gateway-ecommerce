@@ -8,10 +8,6 @@
 /* tslint:disable */
 /* eslint-disable */
 
-
-export class PaymentData {
-    amount: number;
-}
 export class CreateProductInput {
     name: string;
     price: number;
@@ -40,6 +36,10 @@ export class ProductData {
 
 export class CategoryData {
     name: string;
+}
+
+export class PaymentData {
+    amount: number;
 }
 
 export class UserData {
@@ -83,55 +83,6 @@ export class RegisterData {
     lastName: string;
 }
 
-export abstract class IMutation {
-    abstract createPayment(payment: PaymentData): Nullable<Payment> | Promise<Nullable<Payment>>;
-
-    abstract confirmPayment(ws_token: string): Nullable<ConfirmPayment> | Promise<Nullable<ConfirmPayment>>;
-
-    abstract updateUser(id?: Nullable<string>, user?: Nullable<UserData>): Nullable<User> | Promise<Nullable<User>>;
-
-    abstract deleteUser(id?: Nullable<string>): Nullable<User> | Promise<Nullable<User>>;
-
-    abstract updateCart(input?: Nullable<CartData>): Nullable<Cart> | Promise<Nullable<Cart>>;
-
-    abstract createCart_Products(input?: Nullable<Cart_ProductsData>): Nullable<Cart_Products> | Promise<Nullable<Cart_Products>>;
-
-    abstract updateCart_Products(input: UpdateCart_ProductsData, id: string): Nullable<Cart_Products> | Promise<Nullable<Cart_Products>>;
-
-    abstract deleteCart_Products(id?: Nullable<string>): Nullable<Cart_Products> | Promise<Nullable<Cart_Products>>;
-
-    abstract deleteHistorical(id?: Nullable<string>): Nullable<Historical> | Promise<Nullable<Historical>>;
-
-    abstract createHistorical_Products(input?: Nullable<Historical_ProductsData>): Nullable<Historical_Products> | Promise<Nullable<Historical_Products>>;
-
-    abstract login(input?: Nullable<LoginData>): Nullable<AuthPayload> | Promise<Nullable<AuthPayload>>;
-
-    abstract register(input?: Nullable<RegisterData>): Nullable<User> | Promise<Nullable<User>>;
-}
-
-export class Payment {
-    token: string;
-    url: string;
-}
-
-export class ConfirmPayment {
-    vci: string;
-    amount: number;
-    status: string;
-    buy_order: string;
-    session_id: string;
-    card_detail: CardDetail;
-    accounting_date: string;
-    transaction_date: string;
-    authorization_code: string;
-    payment_type_code: string;
-}
-
-export class CardDetail {
-    card_number: string;
-    card_expiration_date: string;
-}
-
 export abstract class IQuery {
     abstract getProducts(): Nullable<Nullable<Product>[]> | Promise<Nullable<Nullable<Product>[]>>;
 
@@ -158,6 +109,43 @@ export abstract class IQuery {
     abstract getHistorical_ProductsByHistoricalId(id?: Nullable<string>): Nullable<Historical_Products> | Promise<Nullable<Historical_Products>>;
 }
 
+export abstract class IMutation {
+    abstract createProduct(input: CreateProductInput): Nullable<Product> | Promise<Nullable<Product>>;
+
+    abstract createCategory(input: CreateCategoryInput): Nullable<Category> | Promise<Nullable<Category>>;
+
+    abstract updateProduct(id?: Nullable<number>, product?: Nullable<ProductData>): Nullable<Product> | Promise<Nullable<Product>>;
+
+    abstract deleteProduct(id?: Nullable<number>): Nullable<Product> | Promise<Nullable<Product>>;
+
+    abstract updateCategory(id?: Nullable<number>, category?: Nullable<CategoryData>): Nullable<Category> | Promise<Nullable<Category>>;
+
+    abstract deleteCategory(id?: Nullable<number>): Nullable<Category> | Promise<Nullable<Category>>;
+
+    abstract createPayment(payment: PaymentData): Nullable<Payment> | Promise<Nullable<Payment>>;
+
+    abstract confirmPayment(ws_token: string): Nullable<ConfirmPayment> | Promise<Nullable<ConfirmPayment>>;
+
+    abstract updateUser(id?: Nullable<string>, user?: Nullable<UserData>): Nullable<User> | Promise<Nullable<User>>;
+
+    abstract deleteUser(id?: Nullable<string>): Nullable<User> | Promise<Nullable<User>>;
+
+    abstract updateCart(input?: Nullable<CartData>): Nullable<Cart> | Promise<Nullable<Cart>>;
+
+    abstract createCart_Products(input?: Nullable<Cart_ProductsData>): Nullable<Cart_Products> | Promise<Nullable<Cart_Products>>;
+
+    abstract updateCart_Products(input: UpdateCart_ProductsData, id: string): Nullable<Cart_Products> | Promise<Nullable<Cart_Products>>;
+
+    abstract deleteCart_Products(id?: Nullable<string>): Nullable<Cart_Products> | Promise<Nullable<Cart_Products>>;
+
+    abstract deleteHistorical(id?: Nullable<string>): Nullable<Historical> | Promise<Nullable<Historical>>;
+
+    abstract createHistorical_Products(input?: Nullable<Historical_ProductsData>): Nullable<Historical_Products> | Promise<Nullable<Historical_Products>>;
+
+    abstract login(input?: Nullable<LoginData>): Nullable<AuthPayload> | Promise<Nullable<AuthPayload>>;
+
+    abstract register(input?: Nullable<RegisterData>): Nullable<User> | Promise<Nullable<User>>;
+}
 
 export class Product {
     id: number;
@@ -175,6 +163,29 @@ export class Product {
 export class Category {
     id: number;
     name: string;
+}
+
+export class Payment {
+    token: string;
+    url: string;
+}
+
+export class ConfirmPayment {
+    vci: string;
+    amount: number;
+    status: string;
+    buy_order: string;
+    session_id: string;
+    card_detail: CardDetail;
+    accounting_date: string;
+    transaction_date: string;
+    authorization_code: string;
+    payment_type_code: string;
+}
+
+export class CardDetail {
+    card_number: string;
+    card_expiration_date: string;
 }
 
 export class AuthPayload {
