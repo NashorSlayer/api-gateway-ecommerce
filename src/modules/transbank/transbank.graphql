@@ -1,0 +1,32 @@
+
+type Mutation{
+    createPayment(payment: PaymentData!): Payment
+    confirmPayment(ws_token: String!): ConfirmPayment
+}
+
+input PaymentData {
+    amount: Float!
+}
+
+type Payment {
+    token: String!
+    url: String!
+}
+
+type ConfirmPayment{
+    vci: String!
+    amount: Float!
+    status: String!
+    buy_order: String!
+    session_id: String!
+    card_detail: CardDetail!
+    accounting_date: String!
+    transaction_date: String!
+    authorization_code: String!
+    payment_type_code: String!
+}
+
+type CardDetail{
+    card_number: String!
+    card_expiration_date: String!
+}

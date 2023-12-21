@@ -1,5 +1,6 @@
 export enum RabbitMQ {
     UserQueue = 'ms-user',
+    TransbankQueue = 'ms-transbank',
 }
 
 export enum UserMsg {
@@ -47,4 +48,10 @@ export enum AuthMsg {
     LOGIN = 'LOGIN',
     REGISTER = 'REGISTER',
     PROFILE = 'PROFILE'
+}
+
+export enum TransbankMsg {
+    CREATE = 'CREATE_TRANSACTION',
+    CONFIRM = 'CONFIRM_TRANSACTION',
+    REMBOLSO = 'REMBOLSO_TRANSACTION'
 }

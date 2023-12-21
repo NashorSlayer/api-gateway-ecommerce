@@ -21,4 +21,15 @@ export class RabbitMQProxy {
             },
         });
     }
+    clientProxyTransbank(): ClientProxy {
+        return ClientProxyFactory.create({
+            transport: Transport.RMQ,
+            options: {
+                urls: this.config.get('RMQ_URL_USER'),
+                queue: RabbitMQ.TransbankQueue,
+            },
+        });
+    }
+
+
 }
