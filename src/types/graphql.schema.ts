@@ -9,10 +9,8 @@
 /* eslint-disable */
 
 export class UserData {
-    email: string;
-    password: string;
-    lastName: string;
-    firstName: string;
+    address: string;
+    image: string;
 }
 
 export class Historical_ProductsData {

@@ -91,10 +91,8 @@ type Historical_Products {
 # Inputs
 
 input UserData {
-    email: String!
-    password: String!
-    lastName: String!
-    firstName: String!
+    address: String!,
+    image: String!
 }
 
 input Historical_ProductsData {
