@@ -8,7 +8,36 @@
 /* tslint:disable */
 /* eslint-disable */
 
-<<<<<<< HEAD
+export class CreateProductInput {
+    name: string;
+    price: number;
+    stock: number;
+    description: string;
+    offer: boolean;
+    promotion: number;
+    image: string;
+    category_id: number;
+}
+
+export class CreateCategoryInput {
+    name: string;
+}
+
+export class ProductData {
+    name: string;
+    price: number;
+    stock: number;
+    description: string;
+    offer: boolean;
+    promotion: number;
+    image: string;
+    category_id: number;
+}
+
+export class CategoryData {
+    name: string;
+}
+
 export class UserData {
     email: string;
     password: string;
@@ -38,36 +67,6 @@ export class UpdateCart_ProductsData {
 
 export class HistoricalData {
     id?: Nullable<string>;
-=======
-export class CreateProductInput {
-    name: string;
-    price: number;
-    stock: number;
-    description: string;
-    offer: boolean;
-    promotion: number;
-    image: string;
-    category_id: number;
-}
-
-export class CreateCategoryInput {
-    name: string;
-}
-
-export class ProductData {
-    name: string;
-    price: number;
-    stock: number;
-    description: string;
-    offer: boolean;
-    promotion: number;
-    image: string;
-    category_id: number;
-}
-
-export class CategoryData {
-    name: string;
->>>>>>> api_gateway_product
 }
 
 export class LoginData {
@@ -83,13 +82,11 @@ export class RegisterData {
 }
 
 export abstract class IQuery {
-<<<<<<< HEAD
-    abstract getUserById(id?: Nullable<string>): Nullable<User> | Promise<Nullable<User>>;
-=======
     abstract getProducts(): Nullable<Nullable<Product>[]> | Promise<Nullable<Nullable<Product>[]>>;
 
     abstract getCategory(): Nullable<Nullable<Category>[]> | Promise<Nullable<Nullable<Category>[]>>;
->>>>>>> api_gateway_product
+
+    abstract getUserById(id?: Nullable<string>): Nullable<User> | Promise<Nullable<User>>;
 
     abstract getUsers(): Nullable<Nullable<User>[]> | Promise<Nullable<Nullable<User>[]>>;
 
