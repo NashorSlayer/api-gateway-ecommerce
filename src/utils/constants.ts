@@ -72,3 +72,25 @@ export enum TransbankMsg {
     CONFIRM = 'CONFIRM_TRANSACTION',
     REMBOLSO = 'REMBOLSO_TRANSACTION'
 }
+
+
+export enum TarjetaAprobadaVISA {
+    numeroTarjeta = '4051 8856 0044 6623',
+    cvv = '123',
+}
+
+export enum TarjetaAprobadaPrepago {
+    numeroTarjeta = '4051 8860 0005 6590',
+    cvv = '123',
+}
+
+export enum TarjetaRechazadaPrepago {
+    numeroTarjeta = '5186 1741 1062 9480',
+    cvv = '123',
+}
+
+export enum persona {
+    rut = '11.111.111-1',
+    clave = '123',
+
+}
