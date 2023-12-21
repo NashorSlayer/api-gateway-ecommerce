@@ -86,7 +86,7 @@ export class RegisterData {
 export abstract class IQuery {
     abstract getProducts(): Nullable<Nullable<Product>[]> | Promise<Nullable<Nullable<Product>[]>>;
 
-    abstract getCategory(): Nullable<Nullable<Category>[]> | Promise<Nullable<Nullable<Category>[]>>;
+    abstract getCategories(): Nullable<Nullable<Category>[]> | Promise<Nullable<Nullable<Category>[]>>;
 
     abstract getUserById(id?: Nullable<string>): Nullable<User> | Promise<Nullable<User>>;
 
