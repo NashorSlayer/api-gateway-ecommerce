@@ -3,19 +3,18 @@ export enum RabbitMQ {
     UserQueue = 'ms-user',
     ProductQueue = 'product_queue',
 }
-//Esto en verdad asumi que va aca pero tengo que confirmar con el arif.
 export enum ProductMsg {
     CREATE = 'CREATE_PRODUCT',
-    FIND_ALL = 'FIND_PRODUCTS',
-    FIND_ONE = 'FIND_PRODUCT',
+    FIND_ALL = 'GET_PRODUCTS',
+    FIND_ONE = 'GET_PRODUCT',
     UPDATE = 'UPDATE_PRODUCT',
     DELETE = 'DELETE_PRODUCT',
 }
 
 export enum CategoryMsg {
     CREATE = 'CREATE_CATEGORY',
-    FIND_ALL = 'FIND_CATEGORIES',
-    FIND_ONE = 'FIND_CATEGORY',
+    FIND_ALL = 'GET_CATEGORIES',
+    FIND_ONE = 'GET_CATEGORY',
     UPDATE = 'UPDATE_CATEGORY',
     DELETE = 'DELETE_CATEGORY',
 }

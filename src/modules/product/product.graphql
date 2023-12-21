@@ -9,15 +9,15 @@ type Mutation {
   createProduct(input: CreateProductInput!): Product 
   createCategory(input: CreateCategoryInput!): Category
 
-  updateProduct(id:ID, product: ProductData): Product
-  deleteProduct(id:ID): Product
-  updateCategory(id:ID, category: CategoryData): Category
-  deleteCategory(id:ID): Category
+  updateProduct(id:Int, product: ProductData): Product
+  deleteProduct(id:Int): Product
+  updateCategory(id:Int, category: CategoryData): Category
+  deleteCategory(id:Int): Category
 }
 
 
 type Product {
-  id: ID!
+  id: Int!
   name: String!
   price: Float!
   stock: Int!
@@ -25,12 +25,12 @@ type Product {
   offer: Boolean!
   promotion: Float!
   image: String!
-  category_id: String!
+  category_id: Int!
   category: Category!
 }
 
 type Category {
-  id: ID!
+  id: Int!
   name: String!
 }
 
@@ -43,7 +43,7 @@ input CreateProductInput {
   offer: Boolean!
   promotion: Float!
   image: String!
-  category_id: String!
+  category_id: Int!
 }
 
 input CreateCategoryInput {
@@ -58,7 +58,7 @@ input ProductData {
   offer: Boolean!
   promotion: Float!
   image: String!
-  category_id: String!
+  category_id: Int!
 }
 
 input CategoryData {

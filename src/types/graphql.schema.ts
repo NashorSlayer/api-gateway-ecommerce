@@ -16,7 +16,7 @@ export class CreateProductInput {
     offer: boolean;
     promotion: number;
     image: string;
-    category_id: string;
+    category_id: number;
 }
 
 export class CreateCategoryInput {
@@ -31,7 +31,7 @@ export class ProductData {
     offer: boolean;
     promotion: number;
     image: string;
-    category_id: string;
+    category_id: number;
 }
 
 export class CategoryData {
@@ -72,13 +72,13 @@ export abstract class IMutation {
 
     abstract createCategory(input: CreateCategoryInput): Nullable<Category> | Promise<Nullable<Category>>;
 
-    abstract updateProduct(id?: Nullable<string>, product?: Nullable<ProductData>): Nullable<Product> | Promise<Nullable<Product>>;
+    abstract updateProduct(id?: Nullable<number>, product?: Nullable<ProductData>): Nullable<Product> | Promise<Nullable<Product>>;
 
-    abstract deleteProduct(id?: Nullable<string>): Nullable<Product> | Promise<Nullable<Product>>;
+    abstract deleteProduct(id?: Nullable<number>): Nullable<Product> | Promise<Nullable<Product>>;
 
-    abstract updateCategory(id?: Nullable<string>, category?: Nullable<CategoryData>): Nullable<Category> | Promise<Nullable<Category>>;
+    abstract updateCategory(id?: Nullable<number>, category?: Nullable<CategoryData>): Nullable<Category> | Promise<Nullable<Category>>;
 
-    abstract deleteCategory(id?: Nullable<string>): Nullable<Category> | Promise<Nullable<Category>>;
+    abstract deleteCategory(id?: Nullable<number>): Nullable<Category> | Promise<Nullable<Category>>;
 
     abstract updateUser(id?: Nullable<string>, user?: Nullable<UserData>): Nullable<User> | Promise<Nullable<User>>;
 
@@ -90,7 +90,7 @@ export abstract class IMutation {
 }
 
 export class Product {
-    id: string;
+    id: number;
     name: string;
     price: number;
     stock: number;
@@ -98,12 +98,12 @@ export class Product {
     offer: boolean;
     promotion: number;
     image: string;
-    category_id: string;
+    category_id: number;
     category: Category;
 }
 
 export class Category {
-    id: string;
+    id: number;
     name: string;
 }
 
